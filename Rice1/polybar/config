@@ -1,0 +1,371 @@
+; No_Judge_5947's Dotfiles 
+; Github : https://github.com/ar123github/vapourwaveDotfiles
+
+[colors]
+background = #121111
+foreground = #E5E9F0
+blue = #f172cb 
+blue2 = #9dded4
+blue3 = #44919b
+red = ff00000
+
+[bar/center]
+; Size
+monitor = ${env:MONITOR:HDMI-1}
+width = 6.5%
+height = 30
+override-redirect = true
+
+; Offset
+offset-x = 49.3%
+offset-y = 1.0%
+
+; Radius
+radius = 0
+
+; Align modules fixed to middle
+fixed-center = true
+
+; Colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; Underline
+line-size = 0
+line-color = ${colors.foreground}
+
+; Border
+border-size = 2
+border-color = ${colors.blue2}
+
+; Padding
+padding-left = 1
+padding-right = 1
+
+; Margin of modules
+module-margin-left = 0
+module-margin-right = 0
+
+; Font
+font-0 = Source Code Pro:size=9
+font-1 = Font Awesome 5 Free Solid:size=11
+font-2 = Font Awesome 5 Brands Regular:size=11
+
+; Modlues
+modules-center = xwindow
+
+; Cursor actions
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/status]
+; Size
+monitor = ${env:MONITOR:HDMI-1}
+width = 17%
+height = 30
+override-redirect = true
+
+; Offset
+offset-x = 81.5%
+offset-y = 1.0%
+
+; Radius
+#radius = 5
+
+; Align modules fixed to middle
+fixed-center = true
+
+; Colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; Underline
+line-size = 0
+line-color = ${colors.foreground}
+
+; Border
+border-size = 2
+border-color = ${colors.blue}
+
+; Padding
+padding-left = 1
+padding-right = 1
+
+; Margin of modules
+module-margin-left = 0
+module-margin-right = 0
+
+; Font
+font-0 = Source Code Pro:size=9
+font-1 = Font Awesome 5 Free Solid:size=11
+font-2 = Font Awesome 5 Brands Regular:size=11
+
+; Modlues
+modules-left = pulseaudio network-ip date
+
+; Cursor actions
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+[bar/work]
+; Size
+monitor = ${env:MONITOR:HDMI-1}
+width = 15%
+height = 30
+override-redirect = true
+
+; Offset
+offset-x = 1.5%
+offset-y = 1.0%
+
+; Radius
+#radius = 5
+
+; Align modules fixed to middle
+fixed-center = true
+
+; Colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; Underline
+line-size = 0
+line-color = ${colors.foreground}
+
+; Border
+border-size = 2
+border-color = ${colors.blue3}
+
+; Padding
+padding-left = 1
+padding-right = 1
+
+; Margin of modules
+module-margin-left = 0
+module-margin-right = 0
+
+; Font
+font-0 = Source Code Pro:size=9
+font-1 = Font Awesome 5 Free Solid:size=11
+font-2 = Font Awesome 5 Brands Regular:size=11
+
+; Modlues
+modules-left = i3
+
+; Cursor actions
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/rofilaunch]
+type = custom/script
+exec = polyrofilaunch
+cursor-click-left = rofi -show drun
+
+[module/updates-pacman-aurhelper]
+type = custom/script
+exec = ~/.config/polybar/updates-pacman-aurhelper.sh
+interval = 600
+
+[module/notification-reddit]
+type = custom/script
+exec = /home/ar123/.config/polybar/notification-reddit.sh
+interval = 60
+
+[module/icon]
+type = custom/script
+exec = echo "[]"
+
+[module/xwindow]
+type = internal/xwindow
+label = [%title:0:30:...%]
+label-maxlen = 17
+
+[module/spacer]
+type = custom/script
+exec = echo "  "
+
+[module/icon-linux]
+type = custom/script
+exec = echo "  " 
+
+[module/info-kernel]
+type = custom/script
+exec = uname -r
+interval = 1024
+
+[module/i3]
+type = internal/i3
+
+; Mouse click
+enable-click = true
+
+; Mouse scroll
+enable-scroll = false
+
+; Sort
+index-sort = true
+
+; Display icons
+fuzzy-match = true
+
+; Icons
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+
+; Focused label
+label-focused = %icon%
+label-focused-foreground = ${colors.blue}
+label-focused-padding = 2
+
+; Unfocused labels
+label-unfocused = %icon%
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-padding = 2
+
+; Visible labels
+label-visible = %icon%
+label-visible-foreground = ${colors.foreground}
+label-visible-padding = 2
+
+; Urgent labels
+label-urgent = %icon% %name%
+label-urgent-foreground = ${colors.red}
+label-urgent-padding = 2
+
+[module/date]
+type = internal/date
+
+; Update interval
+interval = 1.0
+
+; Format
+time = %I:%M %p
+
+; Label
+label =  %time%
+label-foreground = ${colors.foreground}
+label-padding = 2
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Volume label
+label-volume =  %percentage:3%%
+label-volume-foreground = ${colors.foreground}
+label-volume-padding = 2
+
+; Muted label
+label-muted =  Muted
+label-muted-foreground = ${colors.red}
+label-muted-padding = 2
+
+[module/temperature]
+type = internal/temperature
+
+; Label
+label =  %temperature:2%
+label-foreground = ${colors.foreground}
+label-padding = 2
+
+; Warning label
+label-warn =  %temperature%
+label-warn-foreground = ${colors.red}
+label-warn-padding = 2
+
+[module/battery]
+type = internal/battery
+
+; Full battery level
+full-at = 96
+
+; Battery and adapter
+battery = BAT0
+adapter = AC0
+
+; Charging label
+label-charging =  %percentage:3%%
+label-charging-foreground = ${colors.foreground}
+label-charging-padding = 2
+
+; Discharging label
+label-discharging =  %percentage:3%%
+label-discharging-foreground = ${colors.red}
+label-discharging-padding = 2
+
+; Full label
+label-full =  100%
+label-full-foreground = ${colors.foreground}
+label-full-padding = 2
+
+[module/cpu]
+type = internal/cpu
+
+; Label
+label =  %percentage:2%%
+label-foreground = ${colors.foreground}
+label-padding = 2
+
+[module/filesystem]
+type = internal/fs
+
+; Mount points
+mount-0 = /
+
+; Mounted label
+label-mounted =  %used:6%/%total%
+label-mounted-foreground = ${colors.foreground}
+label-mounted-padding = 2
+
+[module/network-essid]
+type = internal/network
+
+interface = wlp3s0
+
+[module/network-ip]
+type = internal/network
+
+; Interface
+interface = wlp3s0
+
+; Connected label
+label-connected =  %essid%
+label-connected-foreground = ${colors.foreground}
+label-connected-padding = 2
+
+; Disconnected label
+label-disconnected =  Not Connected
+label-disconnected-foreground = ${colors.red}
+label-disconnected-padding = 2
+
+[module/network-speed]
+type = internal/network
+
+; Interface
+interface = wlp3s0
+
+; Connected label
+label-connected =  %upspeed:8%  %downspeed:8%
+label-connected-foreground = ${colors.foreground}
+label-connected-padding = 2
+
+; Disconnected label
+label-disconnected =  Not Connected
+label-disconnected-foreground = ${colors.red}
+label-disconnected-padding = 2
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 10
+margin-bottom = 10
